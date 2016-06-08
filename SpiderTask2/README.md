@@ -1,8 +1,8 @@
 ###Spider Task 2
 
-**Framework used : PHP on Apache**
-**Database 	 : MySQL**
-**Server	 : Apache2**
+**Framework used : PHP on Apache**  
+**Database 	 : MySQL**  
+**Server	 : Apache2**  
 
 Below are the links for downloading all the necessary software required to run the scripts :
 
@@ -21,16 +21,16 @@ The details about the database and the tables used are as follows :
 + The user is 'coderick14'@'localhost' with all grant privileges.
 + Password is 9047142795.
 + The database name is 'Spider'.
-+ The table name is 'students'. The CREATE TABLE command is given below.
-   CREATE TABLE `students` (
-  `NAME` varchar(20) DEFAULT NULL,
-  `ROLL_NO` int(9) NOT NULL DEFAULT '0',
-  `DEPT` varchar(50) DEFAULT NULL,
-  `MAIL` varchar(25) DEFAULT NULL,
-  `ADDRESS` varchar(100) DEFAULT NULL,
-  `ABOUT` text,
-  `PSCODE` varchar(10) DEFAULT NULL,
-  PRIMARY KEY (`ROLL_NO`)
++ The table name is 'students'. The CREATE TABLE command is given below.  
+   CREATE TABLE `students` (  
+  `NAME` varchar(20) DEFAULT NULL,  
+  `ROLL_NO` int(9) NOT NULL DEFAULT '0',  
+  `DEPT` varchar(50) DEFAULT NULL,  
+  `MAIL` varchar(25) DEFAULT NULL,  
+  `ADDRESS` varchar(100) DEFAULT NULL,  
+  `ABOUT` text,  
+  `PSCODE` varchar(10) DEFAULT NULL,  
+  PRIMARY KEY (`ROLL_NO`)  
 ) 
 
 **Either you can create a user and database as mentioned above or you can use your own user and database. For the latter, make necessary changes to connect.php script**.
