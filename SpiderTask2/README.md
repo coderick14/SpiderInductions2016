@@ -15,7 +15,7 @@ Below are the links for downloading all the necessary software required to run t
 + Install Apache. Open your terminal. Type **sudo apt-get install apache2**. Start your server with **sudo /etc/init.d/apache2 start**.
 + Install php5. Type **sudo apt-get install php5 libapache2-mod-php5** and **sudo apt-get install php5-mysql**. Restart your server with the command **sudo /etc/init.d/apache2 restart**.
 + Install MySQL. Type **sudo apt-get install mysql-server**. 
-In case of any trouble, [click here] for a detailed instruction on how to set up a LAMP Server. 
+In case of any trouble, [click here](https://www.linux.com/learn/easy-lamp-server-installation) for a detailed instruction on how to set up a LAMP Server. 
 
 The details about the database and the tables used are as follows :
 + The user is 'coderick14'@'localhost' with all grant privileges.
