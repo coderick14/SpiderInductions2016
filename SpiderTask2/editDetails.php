@@ -4,7 +4,7 @@
   if(isset($_POST['submit']))
   {
     include('connect.php');
-    
+
     $nameErr=$pscodeErr=$mailErr=$addrErr="";
     $name=$pscode=$dept=$email=$addr=$about=$roll="";
     $flag=1;
@@ -60,8 +60,14 @@
       $userCode = $updateStud['PSCODE'];
 
       if(strcmp($userCode,$pscode) == 0) {
-        $sqlupdate = "UPDATE students SET NAME='$name',DEPT='$dept',MAIL='$email',ADDRESS='$addr',ABOUT='$about' WHERE ROLL_NO=$roll";
-        $result = mysqli_query($dbcon,$sqlupdate);
+        $sqlupdate = $dbcon->prepare("UPDATE students SET NAME=?,DEPT=?,MAIL=?,ADDRESS=?,ABOUT=? WHERE ROLL_NO=?");
+        if($sqlupdate) {
+          $sqlupdate->bind_param("sssssi",$name,$dept,$email,$addr,$about,$roll);
+        }
+        else {
+          die("Error preparing statement");
+        }
+        $result = $sqlupdate->execute();
         if($result) {
           echo 'Database updated successfully!!<br>';
         }

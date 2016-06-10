@@ -51,8 +51,14 @@
 
      if ($flag==1) {
        $pscode=substr(md5(rand()),0,9);
-       $sqlinsert="INSERT INTO students VALUES('$name','$roll','$dept','$email','$addr','$about','$pscode')";
-       $result = mysqli_query($dbcon,$sqlinsert);
+       $sqlinsert=$dbcon->prepare("INSERT INTO students VALUES(?,?,?,?,?,?,?)");
+       if($sqlinsert) {
+         $sqlinsert->bind_param("sisssss",$name,$roll,$dept,$email,$addr,$about,$pscode);
+       }
+       else {
+         die("Error preparing statements");
+       }
+       $result = $sqlinsert->execute();
        if($result) {
          echo 'Registration successful. <br>';
          echo 'Your passcode is ',$pscode,'.<br> Keep this for future reference and editing.<br>';
