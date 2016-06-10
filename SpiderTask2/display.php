@@ -3,8 +3,11 @@
   if(isset($_GET['seeAll']))
   {
     include('connect.php');
-
-    $seeAllQuery = "SELECT * FROM students";
+    $sort = $_GET['sort'];
+    if($sort == "ByRoll")
+      $seeAllQuery = "SELECT * FROM students";
+    else
+      $seeAllQuery = "SELECT * FROM students ORDER BY NAME";
     $resAll = mysqli_query($dbcon,$seeAllQuery);
     if($resAll) {
       echo "<table>";
@@ -25,6 +28,7 @@
         echo $tuple['ABOUT'];
         echo '</td></tr>';
       }
+      echo "</table>";
     }
     else {
       die("Error extracting from database");
@@ -35,6 +39,7 @@
   {
     include('connect.php');     //includes the script which connects to the mysql database
 
+    $sort = $_GET['sort'];
     $column=$pattern="";
     $flag=1;
     if(!empty($_GET['column'])) {
@@ -57,7 +62,10 @@
 
     if($flag==1) {
 
-      $sqlquery = "SELECT * FROM students WHERE $column LIKE '%".$pattern."%'";
+      if($sort == "ByRoll")
+        $sqlquery = "SELECT * FROM students WHERE $column LIKE '%".$pattern."%'";
+      else
+        $sqlquery = "SELECT * FROM students WHERE $column LIKE '%".$pattern."%' ORDER BY NAME";
       $result = mysqli_query($dbcon,$sqlquery);
 
       if($result) {
@@ -85,6 +93,7 @@
 
               $editStud = $row;
             }
+            echo '</table>';
           }
           else {
             $cntres = "Sorry!! No results found!<br>";
@@ -135,8 +144,11 @@
       </select>
       <h3>Search value</h3>
       <input type="text" size="40" name="pattern"/>
+      <br/><br/>
       <input type="submit" name="sub" value="Submit"/>
-      <input type="submit" name="seeAll" value="View All Students"/>
+      <input type="submit" name="seeAll" value="View All Students"/><br/><br/>
+      <input type="radio" name="sort" value="ByRoll" checked>Sorted By Roll Number<br/>
+      <input type="radio" name="sort" value="ByName">Sorted By Name<br/>
     </form>
     <br/><br/><br/>
     <span style="font-weight:400"><?php echo $cntres; ?></span>
