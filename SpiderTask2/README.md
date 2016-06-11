@@ -1,5 +1,9 @@
 ###Spider Task 2
 
+This project involves making a student database system which can be used to add,view and update student records.
+
+----
+
 **Framework used : PHP on Apache**  
 **Database 	 : MySQL**  
 **Server	 : Apache2**  
