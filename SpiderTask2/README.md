@@ -22,11 +22,11 @@ Below are the links for downloading all the necessary software required to run t
 In case of any trouble, [click here](https://www.linux.com/learn/easy-lamp-server-installation) for a detailed instruction on how to set up a LAMP Server. 
 
 The details about the database and the tables used are as follows :
-+ The user is 'coderick14'@'localhost' with all grant privileges.
-+ Password is 9047142795.
-+ The database name is 'Spider'.
-+ The table name is 'students'. The CREATE TABLE command is given below.  
-   CREATE TABLE `students` (  
++ Create an user with all grant privileges, say "MyUsername"
++ Set up a password, say "MyPassword
++ Create a database after logging in with the above username and password, say "MyDatabase"
++ Create a table with the following CREATE TABLE command. 
+CREATE TABLE `students` (  
   `NAME` varchar(20) DEFAULT NULL,  
   `ROLL_NO` int(9) NOT NULL DEFAULT '0',  
   `DEPT` varchar(50) DEFAULT NULL,  
@@ -37,7 +37,7 @@ The details about the database and the tables used are as follows :
   PRIMARY KEY (`ROLL_NO`)  
 ) 
 
-**Either you can create a user and database as mentioned above or you can use your own user and database. For the latter, make necessary changes to connect.php script**.
+**After you are done with the above steps, make necessary changes to connect.php script**.
 
 The **mysqli** library has been used for connecting to the database.
 
